@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Variables, Data types, and Operators 1</title>
+	<meta charset="utf-8">
+	<title>Variables,Data types,and Operators 1</title>
 </head>
 <body>
 	<h2>Exercise 1: Variables, Data types, and Operators 1</h2>
 	Chương trình nhập điểm của một sinh viên cho các môn: Vật lý, Hóa học, và Sinh học. 
 	Hiển thị tổng và điểm trung bình.
 	<script>
-		let phys = parseInt(prompt("Enter Physical Score: ")),
-		    chemis = parseInt(prompt("Enter Chemistry Score: ")),
-		    bio = parseInt(prompt("Enter Biological Score: "));
-		parseFloat(phys),(chemis),(bio);
+		let phys = parseFloat(prompt("Enter Physical Score: ")),
+		    chemis = parseFloat(prompt("Enter Chemistry Score: ")),
+		    bio = parseFloat(prompt("Enter Biological Score: "));
 		
 		let total = phys + chemis + bio;
 		let average = total/3;
 
-		alert (total);
-		alert (average);
+		alert ("Tổng Điểm:" + total);
+		alert ("Điểm Trung Bình:" + average);
 	</script>
 </body>
 </html>
