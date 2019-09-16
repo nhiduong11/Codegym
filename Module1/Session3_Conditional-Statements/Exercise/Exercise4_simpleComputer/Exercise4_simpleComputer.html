@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<htmll lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Simple Computer</title>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td colspan="4">
+                    <input type="text" id="result" disabled>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="1" id="btn1" onclick="cal1();">
+                </td>
+                <td>
+                    <input type="button" value="2" id="btn2" onclick="cal2();">
+                </td>
+                <td>
+                    <input type="button" value="3" id="btn3" onclick="cal3();">
+                </td>
+                <td>
+                    <input type="button" value="+" id="btnAdd" onclick="calAdd();">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="4" id="btn4" onclick="cal4();">
+                </td>
+                <td>
+                    <input type="button" value="5" id="btn5" onclick="cal5();">
+                </td>
+                <td>
+                    <input type="button" value="6" id="btn6" onclick="cal6();">
+                </td>
+                <td>
+                    <input type="button" value="-" id="btnSub" onclick="calSub();">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="7" id="btn7" onclick="cal7();">
+                </td>
+                <td>
+                    <input type="button" value="8" id="btn8" onclick="cal8();">
+                </td>
+                <td>
+                    <input type="button" value="9" id="btn9" onclick="cal9();">
+                </td>
+                <td>
+                    <input type="button" value="x" id="btnMul" onclick="calMul();">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="" id="btnC" onclick="calC();">
+                </td>
+                <td>
+                    <input type="button" value="0" id="btn0" onclick="cal0();">
+                </td>
+                <td>
+                    <input type="button" value="=" id="btnEqual" onclick="calEqual();">
+                </td>
+                <td>
+                    <input type="button" value="/" id="btnDiv" onclick="calDiv();">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function cal0() {
+            let btn0 = document.getElementById("btn0").value,
+                result = document.getElementById("result");
+            result.value += btn0;
+        }
+        function cal1() {
+            let btn1 = document.getElementById("btn1").value,
+                result = document.getElementById("result");
+            result.value += btn1;
+        }
+        function cal2() {
+            let btn2 = document.getElementById("btn2").value,
+                result = document.getElementById("result");
+            result.value += btn2;
+        }
+        function cal3() {
+            let btn3 = document.getElementById("btn3").value,
+                result = document.getElementById("result");
+            result.value += btn3;
+        }
+        function cal4() {
+            let btn4 = document.getElementById("btn4").value,
+                result = document.getElementById("result");
+            result.value += btn4;
+        }
+        function cal5() {
+            let btn5 = document.getElementById("btn5").value,
+                result = document.getElementById("result");
+            result.value += btn5;
+        }
+        function cal6() {
+            let btn6 = document.getElementById("btn6").value,
+                result = document.getElementById("result");
+            result.value += btn6;
+        }
+        function cal7() {
+            let btn7 = document.getElementById("btn7").value,
+                result = document.getElementById("result");
+            result.value += btn7;
+        }
+        function cal8() {
+            let btn8 = document.getElementById("btn8").value,
+                result = document.getElementById("result");
+            result.value += btn8;
+        }
+        function cal9() {
+            let btn9 = document.getElementById("btn9").value,
+                result = document.getElementById("result");
+            result.value += btn9;
+        }
+        function calAdd() {
+            let btnAdd = document.getElementById("btnAdd").value,
+                result = document.getElementById("result");
+            result.value += btnAdd;
+        }
+        function calSub() {
+            let btnSub = document.getElementById("btnSub").value,
+                result = document.getElementById("result");
+            result.value += btnSub;
+        }
+        function calMul() {
+            let result = document.getElementById("result");
+            result.value += "*";
+        }
+        function calDiv() {
+            let btnDiv = document.getElementById("btnDiv").value,
+                result = document.getElementById("result");
+            result.value += btnDiv;
+        }
+        function calC() {
+            let btnC = document.getElementById("btnC").value,
+                result = document.getElementById("result");
+            result.value = btnC;
+        }
+        function calEqual() {
+            let result = document.getElementById("result");
+            result.value = eval(result.value);
+        }
+    </script>	
+</body>
+</html>
