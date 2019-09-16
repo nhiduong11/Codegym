@@ -1,13 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
 	<title>Prime numbers</title>
 </head>
 <body>
-	<h2>Show the 20 first prime numbers</h2>
-	<<h2>Hiển thị 20 số nguyên tố đầu tiên</h2>
-	<script>
-		int i
+	<h1>Hiển thị 20 số nguyên tố đầu tiên</h1>
+    <script>
+        let num = parseInt(prompt("Number: "));
+        for (i = 2; i <= num; i++) {
+            let prime = true;
+            
+            for (N = 2; N < i; N++) {
+                if (i % N == 0) {
+                    prime = false;
+                }
+            }
+            if (prime) {
+                document.write(i + "  is prime number <br>");
+            }
+        }
 	</script>
 </body>
 </html
