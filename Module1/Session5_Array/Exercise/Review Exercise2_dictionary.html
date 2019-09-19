@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Dictionary</title>
+</head>
+<body>
+	<h1>English-Vietnamese Dictionary</h1>
+	<input type="text" id="word">
+	<button type="button" onclick="mySearch()">Search</button>
+	<p id="result"></p>
+	<script>
+		let word = document.getElementById("word").value,
+			english = ["red","yellow","white","blue","black"],
+			vietnamese =["đỏ","vàng","trắng","xanh","đen"];
+
+		function mySearch() {
+			for(var i = 0; i < english.length; i++){
+				if (word = english.length){
+					document.getElementById("result").innerHTML = vietnamese[i];
+					break;
+				}
+				else{
+					document.getElementById("result").innerHTML = "Not Found!";
+				}
+
+			}
+		}
+	</script>
+</body>
+</html>
