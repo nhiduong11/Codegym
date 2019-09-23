@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apps Functions</title>
+    <style>
+        input[type=button] {
+            background: #22d622;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+    </style>
+</head>
+
+<body onload="listProducts(products)">
+    <input type="text" id="inputProduct">
+    <input type="button" id="add" value="Add" onclick="addProduct()">
+    <table id="table"></table>
+
+    <script>
+        let products = ["Sony Xperia", "SamSung Galaxy", "Nokia 6", "Xiaomi Redmi Not 4", "Apple Iphone 6S"];
+
+
+        function listProducts() {
+            let table = "";
+
+            for (let i = 0; i < products.length; i++) {
+                let inputEdit = "<input type='button' value='Edit' onclick ='editProduct(" + i + ")'>",
+                    inputDelete = "<input type='button' value='Delete' onclick ='deleteProduct(" + i + ")'>";
+                table += "<tr><td id ='cell" + i + "' onclick = 'showInput(" + i + ")'>" + products[i] + "</td><td>" + inputEdit + "</td><td>" + inputDelete + "</td></tr>";
+            }
+            document.getElementById("table").innerHTML = table;
+        }
+
+        function addProduct() {
+            let addProduct = document.getElementById("inputProduct").value;
+            products.push(addProduct);
+            listProducts(products);
+            alert(addProduct + " đã được thêm");
+        }
+
+        let enable = true;
+        function showInput(index) {
+            if (enable) {
+                let select = "<select id='listPro'>";
+                for (let i = 0; i < products.length; i++) {
+                    select += "<option>" + products[i] + "</option>"
+                }
+                select += "</select>";
+                document.getElementById("cell" + index).innerHTML = select;
+                enable = false;
+            }
+        }
+
+        function editProduct(index) {
+            let seIndex = document.getElementById("listPro").selectedIndex,
+                optionValue = document.getElementsByTagName("option")[seIndex].value;
+            products[index] = optionValue;
+            listProducts(products);
+            enable = true;
+        }
+
+        function deleteProduct(index) {
+            products.splice(index, 1);
+            listProducts(products);
+        }
+    </script>
+</body>
+
+</html>

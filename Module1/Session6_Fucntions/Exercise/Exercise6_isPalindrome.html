@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Palindrome</title>
+</head>
+
+<body>
+    <script>
+        let str = prompt("Enter something: ");
+        function isPalindrome(txt) {
+            for (let i = 0; i < txt.length; i++) {
+                if (txt[i] != txt[txt.length - 1 - i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        document.write(isPalindrome(str));
+    </script>
+</body>
+
+</html>

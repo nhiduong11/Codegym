@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson3</title>
+</head>
+
+<body>
+    <script>
+        let a = parseInt(prompt("Input a")),
+            b = parseInt(prompt("Input b")),
+            sum = 0;
+
+        function compareNum(a, b) {
+            if (a > b) {
+                alert(a + " > " + b);
+            } else {
+                sum = a + b;
+                return sum;
+            }
+
+        }
+        compareNum(a, b);
+        document.write(sum);
+    </script>
+</body>
+
+</html>
