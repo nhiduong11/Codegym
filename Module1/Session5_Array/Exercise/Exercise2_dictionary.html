@@ -15,8 +15,8 @@
 			vietnamese =["đỏ","vàng","trắng","xanh","đen"];
 
 		function mySearch() {
-			for(var i = 0; i < english.length; i++){
-				if (word = english.length){
+			for(let i = 0; i < english.length; i++){
+				if (english[i] == word){
 					document.getElementById("result").innerHTML = vietnamese[i];
 					break;
 				}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Tic Tac Toe</title>
+</head>
+<body onclick="reSult()">
+    <p id="carogame"></p>
+    <input type="button" value="Player 1" id="btnOne" onclick="playerOne()">
+    <input type="button" value="Player 2" id="btnTwo" onclick="playerTwo()">
+
+    <script>
+        let row = parseInt(prompt("Enter Row")),
+            column = parseInt(prompt("Enter Column")),
+            caro = document.getElementById("carogame"),
+            board = Array(row),
+            data = "";
+
+        for (let i = 0; i < row; i++) {
+            board[i] = [];
+        }
+        for (let i = 0; i < row; i++) {
+            for (let j = 0; j < column; j++) {
+                board[i][j] = "_";
+            }
+        }
+        for (let i = 0; i < row; i++) {
+            data += "<br/>";
+            for (let j = 0; j < column; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;";
+            }
+        }
+        caro.innerHTML = data;
+
+        function playerOne() {
+            let positionX = parseInt(prompt("X: ")),
+                positionY = parseInt(prompt("Y: "));
+            data = "";
+            board[positionX][positionY] = "x";
+            for (let i = 0; i < row; i++) {
+                data += "<br/>";
+                for (let j = 0; j < column; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;";
+                }
+            }
+            caro.innerHTML = "<hr/>" + data;
+            document.getElementById("btnOne").disabled = true;
+            document.getElementById("btnTwo").disabled = false;
+        }
+
+        function playerTwo() {
+            let positionX = parseInt(prompt("X: ")),
+                positionY = parseInt(prompt("Y: "));
+            data = "";
+            board[positionX][positionY] = "o";
+            for (let i = 0; i < row; i++) {
+                data += "<br/>";
+                for (let j = 0; j < column; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;";
+                }
+            }
+            caro.innerHTML = "<hr/>" + data;
+            document.getElementById("btnTwo").disabled = true;
+            document.getElementById("btnOne").disabled = false;
+
+        }
+
+        function reSult() {
+            for (let i = 0; i < row; i++) {
+                for (let j = 0; j < column; j++) {
+                    if (board[i][j] == "o" && board[i][j + 1] == "o" && board[i][j + 2] == "o" ||
+                        board[i][j] == "o" && board[i + 1][j] == "o" && board[i + 2][j] == "o" ||
+                        board[i][j] == "o" && board[i + 1][j + 1] == "o" && board[i + 2][j + 2] == "o" ||
+                        board[i][j + 2] == "o" && board[i + 1][j + 1] == "o" && board[i + 2][j] == "o") {
+                        setTimeout(function () {
+                            alert("Player 2 win");
+                        }, 50);
+                    } else if (board[i][j] == "x" && board[i][j + 1] == "x" && board[i][j + 2] == "x" ||
+                        board[i][j] == "x" && board[i + 1][j] == "x" && board[i + 2][j] == "x" ||
+                        board[i][j] == "x" && board[i + 1][j + 1] == "x" && board[i + 2][j + 2] == "x" ||
+                        board[i][j + 2] == "x" && board[i + 1][j + 1] == "x" && board[i + 2][j] == "x") {
+                        setTimeout(function () {
+                            alert("Player 1 win");
+                        }, 50);
+                    }
+                }
+            }
+        };
+
+    </script>
+</body>
+</html>
