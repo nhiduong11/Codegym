@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Rectangle Class</title>
+</head>
+<body>
+	<canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;">
+	<script>
+		function Rectangle(width, length) {
+			this.width = width;
+			this.length = length;
+			this.getArea = function()
+				return width*length;
+			this.getPerimeter = function()
+				return (width + length) * 2;
+				
+		}
+
+		function createRectangle() {
+    		let ctx = document.getElementById("myCanvas").getContext("2d");
+    		let l = Math.floor(Math.random() *100 + 1);
+    		let w = Math.floor(Math.random() *100 + 1);
+
+
+			let x = Math.random() * window.innerWidth;
+			let y = Math.random() * window.innerHeight;
+
+
+
+
+    	}
+
+		
+	</script>
+</body>
+</html>

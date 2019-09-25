@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset="utf-8">
+	<title>Nhậu</title>
+</head>
+<body>
+	<script>
+		function Moi(n,w){
+			this.name = n;
+			this.weight = w;
+			this.info = function(moi){
+				return "Mồi là: " + this.name+ " Số lượng còn: " + this.weight;
+			}
+			this.giam = function(){
+				if (this.weight > 0){
+					this.weight--;
+				} else {
+					alert("Hết " + this.name);
+				}
+			}
+		}
+
+		function DoUong(n,w){
+			this.name = n;
+			this.weight = w;
+			this.info = function(douong){
+				return "Đồ uống là: " + this.name+ " Số lượng còn: " + this.weight;
+			}
+			this.giam = function(){
+				if (this.weight > 0){
+					this.weight--;
+				} else {
+					alert("Hết "+ this.name);
+				}
+			}
+		}
+		
+
+		function DanNhau(n){
+			this.name = n;
+			this.an = function(moi){
+				moi.giam();
+			}
+			this.uong = function(douong){
+				douong.giam();
+			}
+		}
+
+		//let echbop = new Moi("ếch bóp", 2);
+		//let bia = new DoUong("Bia", 5);
+		//let Huy = new DanNhau("Huy");
+		//Huy.an(echbop)
+		//Huy.uong(bia)
+	</script>
+</body>
+</html>
