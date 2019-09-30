@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Rectangle Class</title>
+    <meta charset="UTF-8">
+    <title>Rectangle Class</title>
 </head>
+
 <body>
-	<canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;">
-	<script>
-		function Rectangle(width, length) {
-			this.width = width;
-			this.length = length;
-			this.getArea = function()
-				return width*length;
-			this.getPerimeter = function()
-				return (width + length) * 2;
-				
-		}
+    <canvas id="canvas" width="1200px" height="1200px" style="border: 1px solid black"></canvas>
 
-		function createRectangle() {
-    		let ctx = document.getElementById("myCanvas").getContext("2d");
-    		let l = Math.floor(Math.random() *100 + 1);
-    		let w = Math.floor(Math.random() *100 + 1);
+    <script>
+        function Rectangle(w, h) {
+            this.width = w;
+            this.height = h;
+            this.getPerimeter = function () {
+                return (this.width + this.height) * 2;
+            }
+            this.getArea = function () {
+                return this.width * this.height;
+            }
+        }
 
+        function getRandomHex() {
+            return Math.floor(Math.random() * 255);
+        }
 
-			let x = Math.random() * window.innerWidth;
-			let y = Math.random() * window.innerHeight;
+        function getRandomColor() {
+            let red = getRandomHex(),
+                green = getRandomHex(),
+                blue = getRandomHex();
+            return "rgb(" + red + "," + blue + "," + green + ")";
+        }
 
+        function createRec() {
+            let ctx = document.getElementById("canvas").getContext("2d"),
+                x = Math.random() * window.innerWidth,
+                y = Math.random() * window.innerHeight,
+                w = Math.floor(Math.random() * 1000 + 1),
+                h = Math.floor(Math.random() * 1000 + 1),
+                rec = new Rectangle(w, h),
+                color = getRandomColor();
 
+            ctx.fillStyle = color;
+            ctx.fillRect(x, y, rec.width, rec.height);
 
-
-    	}
-
-		
-	</script>
+            document.write("<br> Perimeter is : " + rec.getPerimeter());
+            document.write("<br> Area is : " + rec.getArea());
+        }
+		createRec();
+    </script>
 </body>
 </html>

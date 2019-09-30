@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature</title>
+</head>
+
+<body>
+    <script>
+        function typeC() {
+            let str, C;
+            do {
+                str = prompt("Input C");
+                C = parseFloat(str);
+            } while (isNaN(str) || !Number.isInteger(C))
+            return C;
+        }
+
+        function Temperature(x) {
+            this.C = x
+            this.CToF = function () {
+                return 9 * this.C / 5 + 32;
+            }
+            this.CToKenvin = function () {
+                return this.C + 273.15;
+            }
+        }
+
+        let celsius = new Temperature(typeC());
+        document.write("Degree F: " + celsius.CToF() + "<br>");
+        document.write("Degree K: " + celsius.CToKenvin()+ "<br>");
+    </script>
+</body>
+
+</html>

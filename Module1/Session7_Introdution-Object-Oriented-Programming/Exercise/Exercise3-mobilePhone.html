@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Nokia</h1>
+    <form>
+        <input type="button" value="Battery Status" id="nokiaBatteryDecrease" onclick="battery(nokia,'nokia',this)">
+        <input type="button" value="Battery Charge" id="nokiaBatteryCharge" onclick="batteryCharge(nokia,'nokia')">
+        <input type="text" id="nokiaTexting" onchange="texting(nokia,'nokia',this)">
+        <input type="button" value="Send" id="nokiaSendMessage" onclick="send(nokia,'nokia', this,iphone)">
+        <input type="button" value="Inbox" id="nokiaInbox" onclick="inbox(nokia,'nokia',this)">
+        <input type="button" value="Sent Message" id="nokiaSentMessage" onclick="sent(nokia,'nokia',this)">
+        <input type="button" value="Check Status Mobile" id="nokiaCheckStatus" onclick="status(this)">
+        <input type="button" value="Turn On" id="nokiaTurnOn" onclick="turnOn('nokia',this)">
+        <input type="button" value="Turn Off" id="nokiaTurnOff" onclick="turnOff('nokia',this)">
+    </form>
+
+    <p id="nokiaBatteryDecreaseValue"></p>
+    <p id="nokiaTextInbox"></p>
+    <p id="nokiaTextSent"></p>
+    <p id="nokiaStatus"></p>
+
+    <hr>
+
+    <h1>Iphone</h1>
+    <form>
+        <input type="button" value="Battery Status" id="iphoneBatteryDecrease" onclick="battery(iphone, 'iphone',this)">
+        <input type="button" value="BatteryCharge" id="iphoneBatteryCharge" onclick="batteryCharge(iphone, 'iphone')">
+        <input type="text" id="iphoneTexting" onchange="texting(iphone, 'iphone',this)">
+        <input type="button" value="Send" id="iphoneSendMessage" onclick="send(iphone,'iphone', this,nokia)">
+        <input type="button" value="Inbox" id="iphoneInbox" onclick="inbox(iphone, 'iphone',this)">
+        <input type="button" value="Sent Message" id="iphoneSentMessage" onclick="sent(iphone, 'iphone',this)">
+        <input type="button" value="Check Status Mobile" id="iphoneCheckStatus" onclick="status(this)">
+        <input type="button" value="Turn On" id="iphoneTurnOn" onclick="turnOn('iphone',this)">
+        <input type="button" value="Turn Off" id="iphoneTurnOff" onclick="turnOff('iphone',this)">
+    </form>
+
+    <p id="iphoneBatteryDecreaseValue"></p>
+    <p id="iphoneTextInbox"></p>
+    <p id="iphoneTextSent"></p>
+    <p id="iphoneStatus"></p>
+
+    <script>
+        function Mobile() {
+            this.batteryBar = Math.floor(Math.random() * 10);
+            this.memoryTexting = [];
+            this.txtSent = [];
+            this.txtInbox = [];
+            this.batteryDecrease = function (a, c) {
+                if (this.batteryBar < 2) {
+                    turnOff(a, c);
+                    return this.batteryBar - 1;
+                }
+                else
+                    return this.batteryBar -= 1;
+            }
+            this.batteryCharge = function () {
+                return this.batteryBar = 100;
+            }
+            this.texting = function (b, c) {
+                this.batteryDecrease(b, c);
+                this.memoryTexting.push(c.value);
+            }
+            this.sendMessage = function (b, c, d) {
+                this.batteryDecrease(b, c);
+                d.txtInbox.push(this.memoryTexting[this.memoryTexting.length - 1]);
+                this.txtSent.push(this.memoryTexting[this.memoryTexting.length - 1]);
+                alert("Đã gửi tin");
+            }
+            this.inbox = function (b, c) {
+                this.batteryDecrease(b, c);
+                return this.txtInbox;
+            }
+            this.sentMessage = function (b, c) {
+                this.batteryDecrease(b, c);
+                return this.txtSent;
+            }
+        }
+
+        let nokia = new Mobile(),
+            iphone = new Mobile();
+        function battery(a, b, c) {
+            document.getElementById(b + "BatteryDecreaseValue").innerHTML = "Tình trạng pin: " + a.batteryDecrease(b, c);
+        }
+        function batteryCharge(a, b) {
+            document.getElementById(b + "BatteryDecreaseValue").innerHTML = "Tình trạng pin: " + a.batteryCharge();
+        }
+        function texting(a, b, c) {
+            a.texting(b, c);
+        }
+        function send(a, b, c, d) {
+            a.sendMessage(b, c, d);
+        }
+        function inbox(a, b, c) {
+            document.getElementById(b + "TextInbox").innerHTML = "Tin nhắn trong Inbox: " + a.inbox(b, c);
+        }
+        function sent(a, b, c) {
+            document.getElementById(b + "TextSent").innerHTML = "Tin nhắn đã gửi: " + a.sentMessage(b, c);
+        }
+        function status(a) {
+            if (a.form.elements[0].disabled) {
+                alert("Máy đã tắt");
+            } else {
+                alert("Máy đang bật");
+            }
+        }
+        function turnOn(a, b) {
+            for (i = 0; i < b.form.length - 3; i++) {
+                b.form.elements[i].disabled = false;
+            }
+            document.getElementById(a + "BatteryDecreaseValue").style.display = "block";
+        }
+        function turnOff(a, b) {
+            for (i = 0; i < b.form.length - 3; i++) {
+                b.form.elements[i].disabled = true;
+            }
+            document.getElementById(a + "BatteryDecreaseValue").style.display = "none";
+        }
+    </script>
+</body>
+
+</html>
