@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Puzzle</title>
+</head>
+<body onclick="Done();">
+    <img src="./cat1.jpg" id="img1" alt="img" width="500px;" onclick="clicked1();">
+    <br>
+    <img src="./monkey2.jpg" id="img2" alt="img" width="500px;" onclick="clicked2();">
+    <br>
+    <img src="./panda3.jpg" id="img3" alt="img" width="500px;" onclick="clicked3();">
+    <br>
+    <img src="./cat4.jpg" id="img4" alt="img" width="500px;" onclick="clicked4();">
+    <br>
+    <img src="./monkey5.jpg" id="img5" alt="img" width="500px;" onclick="clicked5();">
+
+    <script>
+        function clicked1() {
+            let img1 = document.getElementById("img1"),
+                cat1Attr = img1.getAttribute("src") == "./cat1.jpg",
+                panda1Attr = img1.getAttribute("src") == "./panda1.jpg";
+            if (cat1Attr) {
+                img1.src = "./panda1.jpg";
+            } else if (panda1Attr) {
+                img1.src = "./monkey1.jpg";
+            } else {
+                img1.src = "./cat1.jpg";
+            }
+        }
+        function clicked2() {
+            let img2 = document.getElementById("img2"),
+                monkey2Attr = img2.getAttribute("src") == "./monkey2.jpg",
+                panda2Attr = img2.getAttribute("src") == "./panda2.jpg";
+            if (monkey2Attr) {
+                img2.src = "./panda2.jpg";
+            } else if (panda2Attr) {
+                img2.src = "./cat2.jpg";
+            } else {
+                img2.src = "./monkey2.jpg";
+            }
+        }
+        function clicked3() {
+            let img3 = document.getElementById("img3"),
+                panda3Attr = img3.getAttribute("src") == "./panda3.jpg",
+                cat3Attr = img3.getAttribute("src") == "./cat3.jpg";
+            if (panda3Attr) {
+                img3.src = "./cat3.jpg";
+            } else if (cat3Attr) {
+                img3.src = "./monkey3.jpg"
+            } else {
+                img3.src = "./panda3.jpg"
+            }
+        }
+        function clicked4() {
+            let img4 = document.getElementById("img4"),
+                cat4Attr = img4.getAttribute("src") == "./cat4.jpg",
+                panda4Attr = img4.getAttribute("src") == "./panda4.jpg";
+            if (cat4Attr) {
+                img4.src = "./panda4.jpg";
+            } else if (panda4Attr) {
+                img4.src = "./monkey4.jpg"
+            } else {
+                img4.src = "./cat4.jpg"
+            }
+        }
+        function clicked5() {
+            let img5 = document.getElementById("img5"),
+                monkey5Attr = img5.getAttribute("src") == "./monkey5.jpg",
+                panda5Attr = img5.getAttribute("src") == "./panda5.jpg";
+            if (monkey5Attr) {
+                img5.src = "./panda5.jpg";
+            } else if (panda5Attr) {
+                img5.src = "./cat5.jpg"
+            } else {
+                img5.src = "./monkey5.jpg"
+            }
+        }
+        function Done() {
+            let cat1Attr = img1.getAttribute("src") == "./cat1.jpg",
+                cat2Attr = img2.getAttribute("src") == "./cat2.jpg",
+                cat3Attr = img3.getAttribute("src") == "./cat3.jpg",
+                cat4Attr = img4.getAttribute("src") == "./cat4.jpg",
+                cat5Attr = img5.getAttribute("src") == "./cat5.jpg",
+                monkey1Attr = img1.getAttribute("src") == "./monkey1.jpg",
+                monkey2Attr = img2.getAttribute("src") == "./monkey2.jpg",
+                monkey3Attr = img3.getAttribute("src") == "./monkey3.jpg",
+                monkey4Attr = img4.getAttribute("src") == "./monkey4.jpg",
+                monkey5Attr = img5.getAttribute("src") == "./monkey5.jpg",
+                panda1Attr = img1.getAttribute("src") == "./panda1.jpg",
+                panda2Attr = img2.getAttribute("src") == "./panda2.jpg",
+                panda3Attr = img3.getAttribute("src") == "./panda3.jpg",
+                panda4Attr = img4.getAttribute("src") == "./panda4.jpg",
+                panda5Attr = img5.getAttribute("src") == "./panda5.jpg";
+            if ((cat1Attr && cat2Attr && cat3Attr && cat4Attr && cat5Attr) ||
+                (monkey1Attr && monkey2Attr && monkey3Attr && monkey4Attr && monkey5Attr) ||
+                (panda1Attr && panda2Attr && panda3Attr && panda4Attr && panda5Attr)) {
+                img1.style.border = "5px solid red";
+                img2.style.border = "5px solid red";
+                img3.style.border = "5px solid red";
+                img4.style.border = "5px solid red";
+                img5.style.border = "5px solid red";
+                setTimeout(function () {}, 50);
+            } else {
+                img1.style.border = "";
+                img2.style.border = "";
+                img3.style.border = "";
+                img4.style.border = "";
+                img5.style.border = "";
+            }
+        }
+    </script>
+</body>
+
+</html>
