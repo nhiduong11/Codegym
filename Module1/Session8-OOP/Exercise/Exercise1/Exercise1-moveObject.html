@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Move Objects</title>
+</head>
+<body>
+	<div id="game"></div>
+<script>
+	function object(image,top,left,size) {
+		this.image = image;
+		this.top = top;
+		this.left = left;
+		this.size = size;
+
+		this.getObjectElement = function(){
+			return '<img width="'+ this.size + 'px"' +
+      			' height="'+ this.size + 'px"' +
+      			' src="' + this.image +'"' +
+      			' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;" />';
+		}
+	
+		this.moveRight = function() {
+		this.left += 20;
+		console.log('ok : ' + this.left);
+		}
+	}
+
+
+	let toToRo = new object("totoro.jpg", 20,30,200);
+	function start() {
+		console.log("start");
+		if (toToRo.left < (window.innerWidth - toToRo.size)) {
+			toToRo.moveRight();
+		}
+		console.log(toToRo.getObjectElement());
+		document.getElementById("game").innerHTML = toToRo.getObjectElement();
+		setTimeout(start, 500 );
+	}
+
+	start();
+</script>
+</body>
+</html>

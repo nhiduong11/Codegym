@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Adam Eva</title>
+</head>
+
+<body>
+    <input type="button" value="Ăn Táo" id="adamEat" onclick="eatApple('Adam', Adam)">
+    <input type="button" value="Đổi Tên" id="adamName" onclick="changeName(Adam)">
+    <input type="button" value="Đổi Giới Tính" id="adamGender" onclick="changeGender(Adam)">
+    <input type="button" value="Nói" id="adamSay" onclick="humanSay(Adam)">
+    <p id="nameAdam"></p>
+    <p id="genderAdam"></p>
+    <p id="weightAdam"></p>
+
+
+    <hr>
+
+    <input type="button" value="Ăn Táo" id="evaEat" onclick="eatApple('Eva', Eva)">
+    <input type="button" value="Đổi Tên" id="evaName" onclick="changeName(Eva)">
+    <input type="button" value="Đổi Giới Tính" id="evaGender" onclick="changeGender(Eva)">
+    <input type="button" value="Nói" id="evaSay" onclick="humanSay(Eva)">
+    <p id="nameEva"></p>
+    <p id="genderEva"></p>
+    <p id="weightEva"></p>
+
+    <hr>
+    <input type="button" value="Kiểm tra Táo" id="checkApple" onclick="chkApple()">
+    <p id="weightApple"></p>
+    <p id="humanSay"></p>
+
+    <script>
+        function Apple(weight) {
+            this.weight = weight;
+            this.decrease = function () {
+                return this.weight -= 1;
+            }
+            this.isEmpty = function () {
+                if (this.weight > 0)
+                    return this.weight;
+                else {
+                    alert("Hết");
+                    return 0;
+                }
+            }
+            this.getWeight = function () {
+                return this.weight;
+            }
+        }
+
+        function Human(name, gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+            this.isMale = function () {
+                return this.gender;
+            }
+            this.setGender = function (gd) {
+                this.gender = gd;
+            }
+            this.checkApple = function (apple) {
+                return apple.isEmpty();
+            }
+            this.eat = function (apple) {
+                if (this.checkApple(apple) > 0)
+                    return apple.decrease();
+            }
+            this.say = function () {
+
+            }
+            this.getName = function () {
+                return this.name;
+            }
+            this.setName = function (n) {
+                this.name = n;
+            }
+            this.getWeight = function () {
+                return this.weight;
+            }
+            this.setWeight = function (x) {
+                if (this.checkApple(apple) > 0)
+                    this.weight += 1;
+
+            }
+        }
+        let apple = new Apple(5),
+            Adam = new Human("Adam", "Male", 70),
+            Eva = new Human("Eva", "Female", 45);
+
+        function eatApple(name, human) {
+            humanWeight(name, human);
+            human.eat(apple);
+            document.getElementById("weightApple").innerHTML = "Khối lượng táo: " + human.checkApple(apple);
+        }
+        function humanWeight(name, human) {
+            human.setWeight();
+            document.getElementById("weight" + name).innerHTML = "Trọng lượng: " + human.getWeight();
+
+        }
+        function chkApple() {
+            document.getElementById("weightApple").innerHTML = "Khối lượng táo: " + apple.getWeight();
+        }
+        function info(name, human) {
+            document.getElementById("name" + name).innerHTML = "Tên: " + human.getName();
+            document.getElementById("gender" + name).innerHTML = "Giới tính: " + human.isMale();
+            document.getElementById("weight" + name).innerHTML = "Trọng lượng: " + human.getWeight();
+        }
+        info("Adam", Adam);
+        info("Eva", Eva);
+        function changeName(human) {
+            human.setName(prompt("Nhập tên"));
+            info("Adam", Adam);
+            info("Eva", Eva);
+        }
+        function changeGender(human) {
+            human.setGender(prompt("Nhập Giới Tính"));
+            info("Adam", Adam);
+            info("Eva", Eva);
+        }
+        let x = "";
+        function humanSay(human) {
+            let say = prompt("Nói");
+            x += "<br>" + human.getName() + ": " + say;
+            document.getElementById("humanSay").innerHTML = x;
+        }
+    </script>
+</body>
+
+</html>
