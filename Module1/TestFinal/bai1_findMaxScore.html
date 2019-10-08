@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1: Find Max Score</title>
+</head>
+<body>
+    <script>
+        let arrayA = [10, 5, 2, 8, -1, 6, 8];
+        let arrayB = [2, 4, 0, 5, 1];
+        let arrayC = [8, 6, 2, 6, 1, 1, 4];
+
+        function findMaxScore(arr) {
+            let maxScore = arr[0];
+            for (let i = 0; i < arr.length; i++) {
+                if (maxScore <= arr[i]) {
+                    maxScore = arr[i];
+                }
+            }
+            return maxScore;
+        }
+        document.write("Max scrore of array A is: " + findMaxScore(arrayA) + "</br>");
+        document.write("Max scrore of array B is: " + findMaxScore(arrayB) + "</br>");
+        document.write("Max scrore of array C is: " + findMaxScore(arrayC) + "</br>");
+    </script>
+</body>
+</html>

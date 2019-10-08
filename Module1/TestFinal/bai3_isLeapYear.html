@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Bai 3: Leap Year</title>
+</head>
+<body>
+	<h1><b>Leap Year Check</b></h1>
+	<input type="text" id="checkLeapYear">
+	<button type="button" onclick="isLeapYear()">Enter a year</button>
+
+	<script>
+        function isLeapYear(year) {
+            year = document.getElementById("checkLeapYear").value;
+        
+            if (year % 4 === 0) {
+                if (year % 100 === 0) {
+                    if (year % 400 === 0) {
+                        alert(year + " is a leap year");
+                    } else {
+                        alert(year + " is NOT a leap year");
+                    }
+                } else {
+                    alert(year + " is a leap year");
+                }
+            } else {
+                alert(year + " is NOT a leap year");
+            }
+        }
+	</script>
+</body>
+</html>
