@@ -11,3 +11,4 @@ public class Ex1_Greeting {
         System.out.println("Hello, " + name);
     }
 }
+
