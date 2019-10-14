@@ -17,3 +17,4 @@ public class P2_khaiBaoBien {
         System.out.println("s = " + s);
     }
 }
+
