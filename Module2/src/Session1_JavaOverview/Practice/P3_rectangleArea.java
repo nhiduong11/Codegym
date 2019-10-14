@@ -19,3 +19,4 @@ public class P3_rectangleArea {
         System.out.println("Area is: " + area);
     }
 }
+
