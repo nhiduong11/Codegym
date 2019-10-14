@@ -26,3 +26,4 @@ public class P7_PrimeNumber {
         }
     }
 }
+
